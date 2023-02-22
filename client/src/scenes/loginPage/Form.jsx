@@ -64,10 +64,11 @@ const Form = () => {
     formData.append('picturePath', values.picture.name);
 
     const savedUserResponse = await fetch (
-       "http://localhost:3001/auth/register",
+       "https://sociomorre-frontend.netlify.app/auth/register",
        {
         method: "POST",
         body: formData,
+        mode: "no-cors",
        } 
     );
     const savedUser = await savedUserResponse.json();
@@ -80,10 +81,11 @@ const Form = () => {
 
    const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch (
-        "http://localhost:3001/auth/login",
+        "https://sociomorre-frontend.netlify.app/auth/login",
         {
          method: "POST",
          headers: { "Content-Type": "application/json" },
+         mode: "no-cors",
          body: JSON.stringify(values),
         } 
      );
