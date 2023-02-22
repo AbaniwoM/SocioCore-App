@@ -68,7 +68,9 @@ const Form = () => {
        {
         method: "POST",
         body: formData,
-        mode: "no-cors",
+        headers: { 
+          "Access-Control-Allow-Origin": "*"
+        },
        } 
     );
     const savedUser = await savedUserResponse.json();
@@ -84,8 +86,10 @@ const Form = () => {
         "https://sociomorre-frontend.netlify.app/auth/login",
         {
          method: "POST",
-         headers: { "Content-Type": "application/json" },
-         mode: "no-cors",
+         headers: { 
+          "Content-Type": "application/json", 
+          "Access-Control-Allow-Origin": "*"
+         },
          body: JSON.stringify(values),
         } 
      );

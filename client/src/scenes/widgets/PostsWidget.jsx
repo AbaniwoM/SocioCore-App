@@ -9,9 +9,12 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     const token = useSelector((state) => state.token);
 
     const getPosts = async () => {
-        const response = await fetch("http://localhost:3001/posts", {
+        const response = await fetch("https://sociomorre-frontend.netlify.app/posts", {
           method: "GET",
-          headers: { Authorization: `Bearer ${token}`},
+          headers: { 
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "*"
+          },
         });
         const data = await response.json();
         dispatch(setPosts({ posts: data }));
@@ -19,10 +22,13 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
     const getUserPosts = async () => {
         const response = await fetch(
-          `http://localhost:3001/posts/${userId}`, 
+          `https://sociomorre-frontend.netlify.app/posts/${userId}`, 
           {
             method: "GET",
-            headers: { Authorization: `Bearer ${token}`},
+            headers: { 
+                Authorization: `Bearer ${token}`,
+                "Access-Control-Allow-Origin": "*"
+            },
           }
         );
         const data = await response.json();

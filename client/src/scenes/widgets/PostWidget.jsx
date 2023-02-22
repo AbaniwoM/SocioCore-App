@@ -35,11 +35,12 @@ const PostWidget = ({
     const main = palette.neutral.main;
 
     const patchLike = async () => {
-        const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+        const response = await fetch(`https://sociomorre-frontend.netlify.app/posts/${postId}/like`, {
            method: "PATCH",
            headers: {
              Authorization: `Bearer ${token}`,
-             "Content-Type": "application/json"
+             "Content-Type": "application/json",
+             "Access-Control-Allow-Origin": "*"
            },
            body: JSON.stringify({ userId: loggedInUserId }) 
         });
@@ -64,7 +65,7 @@ const PostWidget = ({
               height="auto"
               alt="post"
               style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-              src={`http://localhost:3001/assets/${picturePath}`}
+              src={`https://sociomorre-frontend.netlify.app/assets/${picturePath}`}
             />
         )}
         <FlexBetween mt="0.25rem">

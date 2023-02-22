@@ -13,11 +13,12 @@ const FriendListWidget = ({ userId }) => {
 
     const getFriends = async () => {
         const response = await fetch(
-            `http://localhost:3001/users/${userId}/friends`,
+            `https://sociomorre-frontend.netlify.app/users/${userId}/friends`,
             {
                 method: "GET",
                 headers: { 
                     Authorization: `Bearer ${token}`,
+                    "Access-Control-Allow-Origin": "*"
                 }
             }
         );
