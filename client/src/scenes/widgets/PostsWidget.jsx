@@ -9,7 +9,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     const token = useSelector((state) => state.token);
 
     const getPosts = async () => {
-        const response = await fetch("https://sociomorre-frontend.netlify.app/posts", {
+        const response = await fetch("http://localhost:3001/posts", {
           method: "GET",
           headers: { 
             Authorization: `Bearer ${token}`,
@@ -22,7 +22,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
     const getUserPosts = async () => {
         const response = await fetch(
-          `https://sociomorre-frontend.netlify.app/posts/${userId}`, 
+          `http://localhost:3001/posts/${userId}`, 
           {
             method: "GET",
             headers: { 

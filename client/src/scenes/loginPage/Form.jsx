@@ -64,7 +64,7 @@ const Form = () => {
     formData.append('picturePath', values.picture.name);
 
     const savedUserResponse = await fetch (
-       "https://copper-button.cyclic.app/auth/register",
+       "http://localhost:3001/auth/register",
        {
         method: "POST",
         body: formData,
@@ -83,7 +83,7 @@ const Form = () => {
 
    const login = async (values, onSubmitProps) => {
     const loggedInResponse = await fetch (
-        "https://copper-button.cyclic.app/auth/login",
+        "http://localhost:3001/auth/login",
         {
          method: "POST",
          headers: { 
@@ -144,8 +144,8 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.firstName}
                   name="firstName"
-                  error={Boolean(touched.location) && Boolean(errors.location)}
-                  helperText={touched.location && errors.location}
+                  error={Boolean(touched.firstName) && Boolean(errors.firstName)}
+                  helperText={touched.firstName && errors.firstName}
                   sx={{ gridColumn: "span 2"}} 
                  />
                  <TextField
@@ -242,6 +242,7 @@ const Form = () => {
                <Button
                 fullWidth 
                 type="submit"
+                onClick={handleSubmit}
                 sx={{
                     m: "2rem 0",
                     p: "1rem",
